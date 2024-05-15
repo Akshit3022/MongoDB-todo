@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Todo</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <h1>Update Todo</h1>
+    <div class="content">
+        <form action="{{ url_for('update', id=todo['_id']) }}" method="post">
+            <p>
+                <label for="content">Todo content:</label><br>
+            </p>
+            <p>
+    
+                <input type="text" id="content" name="content" value="{{ todo['content'] }}" required>
+            </p>
+            <p>
+                <label for="degree">Degree:</label><br>
+            </p>
+            <p>
+    
+                <input type="radio" id="degree-important" name="degree" value="important" {% if todo['degree'] == 'important' %}checked{% endif %} required>
+            </p>
+            <p>
+    
+                <label for="degree-important">Important</label>
+            </p>
+            <p>
+    
+                <input type="radio" id="degree-unimportant" name="degree" value="Unimportant" {% if todo['degree'] == 'Unimportant' %}checked{% endif %} required>
+            </p>
+            <p>
+    
+                <label for="degree-unimportant">Unimportant</label>
+            </p>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>
